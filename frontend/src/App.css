@@ -1,0 +1,28 @@
+body{
+    background:#f4f6f9;
+}
+
+.container{
+    min-height:80vh;
+}
+
+.book-card{
+    transition:.3s;
+}
+
+.book-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+.card img{
+    height:280px;
+    object-fit:cover;
+}
+
+footer{
+    background:#212529;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
