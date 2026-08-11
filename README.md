@@ -1,318 +1,166 @@
-# Online Book Store
+# 📚 Online Book Store
 
-A full-stack Online Book Store application built using **React**, **Node.js**, **Express**, **MySQL**, **Docker**, **Kubernetes**, **Jenkins**, and **AWS**.
+A full-stack **Online Book Store** application developed using **React.js, Node.js, Express.js, and MySQL**. The application is containerized with **Docker**, deployed using **Kubernetes**, and automated with **Jenkins CI/CD** on **AWS**.
 
----
+## 🚀 Project Overview
 
-# Tech Stack
+The Online Book Store allows users to browse books and view important information such as **title, author, category, price, description, and book images**.
 
-## Frontend
-- React.js
-- Bootstrap
-- Axios
-- React Router
+The project demonstrates the complete DevOps workflow from source code management to containerization, CI/CD automation, and cloud deployment.
 
-## Backend
-- Node.js
-- Express.js
+## 🛠️ Technology Stack
 
-## Database
-- MySQL 8
+| Category         | Technologies                    |
+| ---------------- | ------------------------------- |
+| Frontend         | React.js, HTML, CSS, JavaScript |
+| Backend          | Node.js, Express.js             |
+| Database         | MySQL                           |
+| Containerization | Docker, Docker Compose          |
+| Orchestration    | Kubernetes                      |
+| CI/CD            | Jenkins                         |
+| Cloud            | AWS EC2                         |
+| Version Control  | Git, GitHub                     |
 
-## DevOps
-- Docker
-- Docker Compose
-- Kubernetes
-- Jenkins
-- GitHub
+## ✨ Key Features
 
-## Cloud
-- AWS EC2 (Ubuntu 24.04 LTS)
+* 📚 Browse available books
+* 🔍 View book details
+* 💰 Display book prices and categories
+* 🖼️ Display book images and descriptions
+* 🔗 REST API integration
+* 🐳 Docker containerization
+* ☸️ Kubernetes deployment
+* 🔄 Jenkins CI/CD automation
+* ☁️ AWS cloud deployment
 
----
+## 🏗️ Architecture
 
-# Project Structure
-
+```text
+              GitHub
+                 │
+                 ▼
+              Jenkins
+                 │
+                 ▼
+              Docker
+                 │
+                 ▼
+            Kubernetes
+          ┌──────┼──────┐
+          ▼      ▼      ▼
+      Frontend Backend MySQL
+       React   Node.js  DB
+          │      │      │
+          └──────┼──────┘
+                 ▼
+                AWS
 ```
-online-book-store/
-│
+
+## 📁 Project Structure
+
+```text
+online-Book-Store/
 ├── frontend/
 ├── backend/
 ├── database/
-├── docker/
 ├── kubernetes/
-├── Jenkinsfile
 ├── docker-compose.yml
-├── README.md
+├── Jenkinsfile
+└── README.md
 ```
 
----
+## 🐳 Run with Docker
 
-# Features
-
-- Browse Books
-- Search Books
-- Book Details
-- Shopping Cart
-- Checkout
-- Order Management
-- REST API
-- Dockerized Application
-- Kubernetes Deployment
-- Jenkins CI/CD Pipeline
-
----
-
-# Clone Repository
+Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/online-book-store.git
-
-cd online-book-store
+git clone https://github.com/venujaganti/online-Book-Store.git
+cd online-Book-Store
 ```
 
----
-
-# Run Backend
+Start the application:
 
 ```bash
-cd backend
-
-npm install
-
-npm start
+docker compose up -d --build
 ```
 
-Backend runs at:
-
-```
-http://localhost:5000
-```
-
----
-
-# Run Frontend
+Check running containers:
 
 ```bash
-cd frontend
-
-npm install
-
-npm start
+docker ps
 ```
 
-Frontend runs at:
+## ☸️ Kubernetes Deployment
 
-```
-http://localhost:3000
-```
-
----
-
-# Database
-
-Import SQL file
-
-```bash
-mysql -u root -p < database/bookstore.sql
-```
-
----
-
-# Docker
-
-Build all services
-
-```bash
-docker compose build
-```
-
-Run
-
-```bash
-docker compose up -d
-```
-
-Stop
-
-```bash
-docker compose down
-```
-
----
-
-# Kubernetes
-
-Create namespace
-
-```bash
-kubectl apply -f kubernetes/namespace.yaml
-```
-
-Deploy
+Deploy the application:
 
 ```bash
 kubectl apply -f kubernetes/
 ```
 
-Pods
+Check pods:
 
 ```bash
 kubectl get pods -n online-book-store
 ```
 
-Services
+Check services:
 
 ```bash
 kubectl get svc -n online-book-store
 ```
 
-Deployments
+## 🔄 CI/CD Pipeline
 
-```bash
-kubectl get deployment -n online-book-store
-```
-
----
-
-# Jenkins Pipeline
-
-Stages
-
-1. Checkout Source
-2. Build Frontend Image
-3. Build Backend Image
-4. Docker Login
-5. Push Docker Images
-6. Deploy to Kubernetes
-7. Verify Deployment
-
----
-
-# Docker Images
-
-Frontend
-
-```
-YOUR_DOCKERHUB_USERNAME/bookstore-frontend:latest
-```
-
-Backend
-
-```
-YOUR_DOCKERHUB_USERNAME/bookstore-backend:latest
-```
-
----
-
-# API Endpoints
-
-## Books
-
-GET
-
-```
-/api/books
-```
-
-GET
-
-```
-/api/books/{id}
-```
-
-## Orders
-
-GET
-
-```
-/api/orders
-```
-
-POST
-
-```
-/api/orders
-```
-
----
-
-# CI/CD Workflow
-
-```
+```text
 Developer
-     │
-     ▼
+    ↓
 GitHub
-     │
-     ▼
+    ↓
 Jenkins
-     │
-     ▼
-Build Docker Images
-     │
-     ▼
-Push Docker Hub
-     │
-     ▼
-Kubernetes Deployment
-     │
-     ▼
-Application Running
-```
-
----
-
-# AWS Architecture
-
-```
-Internet
-     │
-Application Load Balancer
-     │
-Kubernetes Cluster
-     │
- ├── Frontend Pods
- ├── Backend Pods
- └── MySQL
-```
-
----
-
-# Useful Commands
-
-Docker
-
-```bash
-docker ps
-
-docker images
-
-docker logs bookstore-backend
-
-docker logs bookstore-frontend
-
-docker logs bookstore-mysql
-```
-
+    ↓
+Build & Test
+    ↓
+Docker Images
+    ↓
 Kubernetes
-
-```bash
-kubectl get pods
-
-kubectl get svc
-
-kubectl get deployment
-
-kubectl describe pod POD_NAME
-
-kubectl logs POD_NAME
+    ↓
+AWS Deployment
 ```
 
----
+Jenkins automates the application build, Docker image creation, and Kubernetes deployment process.
 
-# Author
+## 📸 Screenshots
 
-Venu Jaganti
+### 🏠 Home Page
 
-DevOps Engineer | AWS | Docker | Kubernetes | Jenkins
+![Home Page]!(<Screenshot 2026-08-11 160401.png>)
+
+### 📚 Book Listing
+
+![Book Listing]!(<Screenshot 2026-08-11 160420.png>)
+
+### 📖 order Details
+
+![order Details]!(<Screenshot 2026-08-11 160437.png>)
+
+### 🐳 Docker Containers
+
+![Docker Containers](<Screenshot 2026-08-11 143021.png>)
+
+### ☸️ Kubernetes Deployment
+
+![Kubernetes](<Screenshot 2026-08-11 151154.png>)
+
+## 🎯 Project Objective
+
+The objective of this project is to demonstrate practical knowledge of **full-stack application development, Docker containerization, Kubernetes orchestration, Jenkins CI/CD, Linux administration, and AWS cloud deployment**.
+
+## 👨‍💻 Author
+
+**Venu Jaganti**
+B.Tech – Computer Science & Engineering
+
+## 📄 License
+
+This project is created for **educational and portfolio purposes**.
